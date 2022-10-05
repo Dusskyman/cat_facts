@@ -38,69 +38,64 @@ class _FactPageState extends State<FactPage> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocListener<CatFactBloc, CatFactState>(
-          listener: (context, state) {
-            setState(() {});
-          },
-          child: Builder(
-            builder: (context) {
-              if (context.read<CatFactBloc>().state.currentCatFactStatus == CatFactStatus.loading) {
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              if (context.read<CatFactBloc>().state.currentCatFactStatus == CatFactStatus.error) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Something went wrong',
-                      style: AppTextStyles.textStyle20bold,
-                    ),
-                    const SizedBox(height: 32.0),
-                    GeneralButton(
-                      child: AutoSizeText('Retry'),
-                      onTap: () {
-                        context.read<CatFactBloc>().add(GetCatFactEvent());
-                      },
-                    ),
-                  ],
-                );
-              }
-              return AnimatedOpacity(
-                duration: Duration(milliseconds: 500),
-                opacity: context.read<CatFactBloc>().state.currentCatFactStatus == CatFactStatus.loading ? 0 : 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Image.network(context.read<CatFactBloc>().state.currentCatFact!.img!),
-                    ),
-                    AutoSizeText(
-                      context.read<CatFactBloc>().state.currentCatFact!.fact!,
-                      minFontSize: 10,
-                      style: AppTextStyles.textStyle20w400,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: GeneralButton(
-                              child: AutoSizeText('Get new fact!'),
-                              onTap: () {
-                                context.read<CatFactBloc>().add(GetCatFactEvent());
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+        child: BlocBuilder<CatFactBloc, CatFactState>(
+          builder: (context, state) {
+            if (context.read<CatFactBloc>().state.currentCatFactStatus == CatFactStatus.loading) {
+              return Center(
+                child: CircularProgressIndicator(),
               );
-            },
-          ),
+            }
+            if (context.read<CatFactBloc>().state.currentCatFactStatus == CatFactStatus.error) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Something went wrong',
+                    style: AppTextStyles.textStyle20bold,
+                  ),
+                  const SizedBox(height: 32.0),
+                  GeneralButton(
+                    child: AutoSizeText('Retry'),
+                    onTap: () {
+                      context.read<CatFactBloc>().add(GetCatFactEvent());
+                    },
+                  ),
+                ],
+              );
+            }
+            return AnimatedOpacity(
+              duration: Duration(milliseconds: 500),
+              opacity: context.read<CatFactBloc>().state.currentCatFactStatus == CatFactStatus.loading ? 0 : 1,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Image.network(context.read<CatFactBloc>().state.currentCatFact!.img!),
+                  ),
+                  AutoSizeText(
+                    context.read<CatFactBloc>().state.currentCatFact!.fact!,
+                    minFontSize: 10,
+                    style: AppTextStyles.textStyle20w400,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: GeneralButton(
+                            child: AutoSizeText('Get new fact!'),
+                            onTap: () {
+                              context.read<CatFactBloc>().add(GetCatFactEvent());
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
         ),
       ),
     );

@@ -13,28 +13,31 @@ class FactHistoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16.0),
-      child: Container(
-        height: 128.0,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.grey,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(minHeight: 128.0),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.grey,
+            ),
+            borderRadius: BorderRadius.circular(16.0),
           ),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 3,
-              child: Image.network(catFactDto.img!),
-            ),
-            Expanded(
-              flex: 5,
-              child: Text(
-                catFactDto.fact!,
-                style: AppTextStyles.textStyle14w400,
+          child: Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Image.network(catFactDto.img!),
               ),
-            ),
-          ],
+              const SizedBox(width: 16.0),
+              Expanded(
+                flex: 5,
+                child: Text(
+                  catFactDto.fact!,
+                  style: AppTextStyles.textStyle14w400,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
