@@ -19,6 +19,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   pretty_dio_logger: ^1.1.1
+  logging: ^1.1.0
 
   # Architecture
   bloc: ^8.1.0

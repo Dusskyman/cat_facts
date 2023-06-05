@@ -5,7 +5,8 @@ import 'package:cat_facts/services/storage/storage.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  initLogger();
+  Logger.init(LocalLogger());
+  WidgetsFlutterBinding.ensureInitialized();
   initInterceptors();
   await Storage.instance().init();
   runApp(const Application());

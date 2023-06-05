@@ -13,9 +13,9 @@ class CatFactDto with _$CatFactDto {
     explicitToJson: true,
   )
   const factory CatFactDto({
-    @JsonKey(name: 'fact') String? fact,
-    @JsonKey(name: 'img') String? img,
+    @JsonKey(name: 'fact') required String fact,
   }) = _CatFactDto;
 
-  factory CatFactDto.fromJson(Map<String, dynamic> json) => _$CatFactDtoFromJson(json);
+  factory CatFactDto.fromJson(Map<String, dynamic> json) =>
+      _$CatFactDtoFromJson(json);
 }

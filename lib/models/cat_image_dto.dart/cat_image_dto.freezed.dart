@@ -21,7 +21,7 @@ CatImageDto _$CatImageDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CatImageDto {
   @JsonKey(name: 'url')
-  String? get img => throw _privateConstructorUsedError;
+  String get img => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $CatImageDtoCopyWith<$Res> {
   factory $CatImageDtoCopyWith(
           CatImageDto value, $Res Function(CatImageDto) then) =
       _$CatImageDtoCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'url') String? img});
+  $Res call({@JsonKey(name: 'url') String img});
 }
 
 /// @nodoc
@@ -53,7 +53,7 @@ class _$CatImageDtoCopyWithImpl<$Res> implements $CatImageDtoCopyWith<$Res> {
       img: img == freezed
           ? _value.img
           : img // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -65,7 +65,7 @@ abstract class _$$_CatImageDtoCopyWith<$Res>
           _$_CatImageDto value, $Res Function(_$_CatImageDto) then) =
       __$$_CatImageDtoCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'url') String? img});
+  $Res call({@JsonKey(name: 'url') String img});
 }
 
 /// @nodoc
@@ -86,7 +86,7 @@ class __$$_CatImageDtoCopyWithImpl<$Res> extends _$CatImageDtoCopyWithImpl<$Res>
       img: img == freezed
           ? _value.img
           : img // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -96,14 +96,14 @@ class __$$_CatImageDtoCopyWithImpl<$Res> extends _$CatImageDtoCopyWithImpl<$Res>
 @JsonSerializable(
     fieldRename: FieldRename.snake, checked: true, explicitToJson: true)
 class _$_CatImageDto extends _CatImageDto {
-  const _$_CatImageDto({@JsonKey(name: 'url') this.img}) : super._();
+  const _$_CatImageDto({@JsonKey(name: 'url') required this.img}) : super._();
 
   factory _$_CatImageDto.fromJson(Map<String, dynamic> json) =>
       _$$_CatImageDtoFromJson(json);
 
   @override
   @JsonKey(name: 'url')
-  final String? img;
+  final String img;
 
   @override
   String toString() {
@@ -137,8 +137,8 @@ class _$_CatImageDto extends _CatImageDto {
 }
 
 abstract class _CatImageDto extends CatImageDto {
-  const factory _CatImageDto({@JsonKey(name: 'url') final String? img}) =
-      _$_CatImageDto;
+  const factory _CatImageDto(
+      {@JsonKey(name: 'url') required final String img}) = _$_CatImageDto;
   const _CatImageDto._() : super._();
 
   factory _CatImageDto.fromJson(Map<String, dynamic> json) =
@@ -146,7 +146,7 @@ abstract class _CatImageDto extends CatImageDto {
 
   @override
   @JsonKey(name: 'url')
-  String? get img;
+  String get img;
   @override
   @JsonKey(ignore: true)
   _$$_CatImageDtoCopyWith<_$_CatImageDto> get copyWith =>

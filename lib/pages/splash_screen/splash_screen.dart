@@ -1,7 +1,7 @@
-import 'package:cat_facts/bloc/cat_fact_bloc/cat_fact_bloc.dart';
 import 'package:cat_facts/config/app_router.dart';
 import 'package:cat_facts/consts.dart';
 import 'package:cat_facts/layouts/main_layout.dart';
+import 'package:cat_facts/pages/fact_page/bloc/cat_fact_bloc.dart';
 import 'package:cat_facts/theme/app_image.dart';
 import 'package:cat_facts/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 3),
     vsync: this,
@@ -28,12 +29,12 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    context.read<CatFactBloc>().add(GetSavedCatFactsEvent());
-    context.read<CatFactBloc>().add(GetCatFactEvent());
+    context.read<CatFactBloc>().add(const GetCatFactEvent());
     _controller.forward();
     _controller.addListener(() {
       if (_controller.isCompleted) {
-        RouteService.instance.pushAndPopUntil(const FactPageRoute(), predicate: (Route<dynamic> route) => false);
+        RouteService.instance.pushAndPopUntil(const FactPageRoute(),
+            predicate: (Route<dynamic> route) => false);
       }
     });
   }

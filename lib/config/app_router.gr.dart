@@ -29,12 +29,6 @@ class _$AppRouter extends RootStackRouter {
         child: const FactPage(),
       );
     },
-    FactHistoryPageRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const FactHistoryPage(),
-      );
-    },
   };
 
   @override
@@ -46,10 +40,6 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           FactPageRoute.name,
           path: 'routeFactScreen',
-        ),
-        RouteConfig(
-          FactHistoryPageRoute.name,
-          path: 'routeHistoryFactScreen',
         ),
       ];
 }
@@ -76,16 +66,4 @@ class FactPageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'FactPageRoute';
-}
-
-/// generated route for
-/// [FactHistoryPage]
-class FactHistoryPageRoute extends PageRouteInfo<void> {
-  const FactHistoryPageRoute()
-      : super(
-          FactHistoryPageRoute.name,
-          path: 'routeHistoryFactScreen',
-        );
-
-  static const String name = 'FactHistoryPageRoute';
 }

@@ -13,8 +13,9 @@ class CatImageDto with _$CatImageDto {
     explicitToJson: true,
   )
   const factory CatImageDto({
-    @JsonKey(name: 'url') String? img,
+    @JsonKey(name: 'url') required String img,
   }) = _CatImageDto;
 
-  factory CatImageDto.fromJson(Map<String, dynamic> json) => _$CatImageDtoFromJson(json);
+  factory CatImageDto.fromJson(Map<String, dynamic> json) =>
+      _$CatImageDtoFromJson(json);
 }

@@ -25,13 +25,7 @@ class DioConfig {
     );
   }
 
-  Dio provideAuthorizedDio() => _getDio(true);
-
-  Dio provideUnAuthorizedDio() => _getDio(false);
-
-  Dio _getDio(
-    bool isAuthorized,
-  ) {
+  Dio getDio() {
     final dio = Dio(_dioOptions);
     HeaderInterceptor.instance.set(
       dio,
@@ -41,8 +35,6 @@ class DioConfig {
       _errorInterceptor,
       PrettyDioLogger(requestHeader: true, requestBody: true),
     ];
-    if (isAuthorized) {}
-
     return dio
       ..interceptors.addAll([
         ...interceptors,

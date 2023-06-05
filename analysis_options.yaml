@@ -52,6 +52,7 @@ linter:
     prefer_collection_literals: true
     prefer_conditional_assignment: true
     prefer_expression_function_bodies: false
+    prefer_const_constructors: true
 
     file_names: true
     close_sinks: true

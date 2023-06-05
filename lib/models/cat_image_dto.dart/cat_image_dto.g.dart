@@ -12,7 +12,7 @@ _$_CatImageDto _$$_CatImageDtoFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$_CatImageDto(
-          img: $checkedConvert('url', (v) => v as String?),
+          img: $checkedConvert('url', (v) => v as String),
         );
         return val;
       },

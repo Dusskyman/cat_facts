@@ -1,7 +1,8 @@
-import 'package:cat_facts/bloc/cat_fact_bloc/cat_fact_bloc.dart';
 import 'package:cat_facts/config/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'pages/fact_page/bloc/cat_fact_bloc.dart';
 
 class Application extends StatefulWidget {
   const Application();
